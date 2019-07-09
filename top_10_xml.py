@@ -25,11 +25,11 @@ with open('newsafr.xml') as data:
     dfile = ETXML.parse(data).getroot()
     description = dfile.findall("channel/item/description")
     for dscrpt in description:
-        lst_news.extend(dscrpt.text.split())
+        lst_news.extend(dscrpt.text.lower().split())
     title = dfile.findall("channel/item/title")
     # title тоже включаем, т.к. заголовок новости тоже является частью новости и попадает под условия ДЗ
     for ttl in title:
-        lst_news.extend(ttl.text.split())
+        lst_news.extend(ttl.text.lower().split())
 
 num = 0
 dict = {}

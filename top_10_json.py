@@ -24,9 +24,9 @@ lst_news = list()
 with open('newsafr.json') as data:
     dfile = json.load(data)
     for dict in dfile['rss']['channel']['items']:
-        lst_news.extend(dict['description'].split())
+        lst_news.extend(dict['description'].lower().split())
         # title тоже включаем, т.к. заголовок новости тоже является частью новости и попадает под условия ДЗ
-        lst_news.extend(dict['title'].split())
+        lst_news.extend(dict['title'].lower().split())
 
 num = 0
 dict = {}
